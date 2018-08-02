@@ -515,7 +515,6 @@ footer span{
     float: left;
   }
 }
-
 @keyframes moveLeftCurrent {
   from{
     margin-left: 0;

@@ -3,11 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-:root{
-  --background-color: #000;
+a{
+  color: #000;
+  text-decoration: none;
 }
-
 ul{
   font-weight: 800;
 }
@@ -26,9 +25,12 @@ li{
   font-family: 'Montserrat', sans-serif;
 }
 
+body button:focus{
+  outline: none;
+}
 header{
   color: #fff;
-
+  top:0;
 }
 
 .accountSign{
@@ -37,10 +39,12 @@ header{
 
 .headerBar{
   width: 100%;
-  height: 50px;
+  height: 49px;
   position: fixed;
   top:0;
   background-color: #fff;
+  border-bottom: 1px solid #f1f1f1;
+  z-index: 1;
 }
 
 .menuBar img {
@@ -59,10 +63,14 @@ header{
   float: left;
 }
 
-.menu li {
-  background-color: #fff;
+.menuContainer{
+  margin-left: 40px;
+  display: inline-flex;
 }
 
+.menu li {
+  background-color: #fff;
+  cursor: pointer;
 }
 
 .menu > li ul li{
@@ -73,6 +81,21 @@ header{
   display: none;
   position: absolute;
   width: 145px;
+}
+
+.menu .botonInicio{
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+  padding: 5px 30px;
+  float: right;
+}
+.botonInicio{
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #000;
+
 }
 
 .menu li:hover > ul{
@@ -87,15 +110,53 @@ header{
 .menuPrincipal{
   width: 145px;
 }
-
-.mainTitle h1,
-.mainTitle h2{
+.menuRestaurantes{
+  position: sticky;
+  left: 0;
+  width:300px;
+  height: 700px;
+  background-color: #f6f6f6f6;
+  margin-top: 49px;
+  z-index: ;
+  padding-top: 20px;
+}
+.menuRestaurantes h2{
+  font-size: 18px;
+  display: block;
+  padding: 11px 20px;
+}
+.menuRestaurantes li{
+  display: block;
+  padding: 11px 20px;
+  font-size: 12px;
+}
+.menuRestaurantes li:hover{
+  color: #fff;
+}
+.gridRestaurantes{
+  float: right;
+}
+.mainTitle h1{
   text-align: center;
   margin-top: 60px;
 }
 
-header{
-  top:0;
+ .mainTitle h2{
+   text-align: left;
+   margin-top: 60px;
+   margin-left: 50px;
+ }
+
+.newUser{
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.newUser:hover{
+  text-decoration: underline;
+
 }
 
 header ul {
@@ -111,7 +172,7 @@ header li{
   background: none;
   color: #000;
   border: none;
-  padding: 15px;
+  padding: 17px;
 }
 
 header .mainMenu li{
@@ -120,13 +181,40 @@ header .mainMenu li{
   border: none;
 }
 
+}
+header li a:link,header li a:visited{
+  color: #000;
+
+}
+
 header li:hover:not(.blackHoverRemove) {
   background-color: #000;
   color: #fff;
   -webkit-transition: all 0.8 ease;
   transition: all 0.8s ease;
 }
-header li a:hover {
+.botonInicio:hover {
+  background-color: #000;
+  color: #fff;
+  -webkit-transition: all 0.8 ease;
+  transition: all 0.8s ease;
+}
+.forgotPassword:hover{
+  text-decoration: underline;
+}
+.btn-signin:hover{
+  background-color: #484848;
+  -webkit-transition: all 0.8 ease;
+  transition: all 0.8s ease;
+}
+.registerInputs .btn-fb:hover {
+  background-color: #334f88;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.8 ease;
+  transition: all 0.8s ease;
+}
+header li a:hover:not(.newUser) {
   color: #fff;
 
 }
@@ -201,46 +289,18 @@ input::placeholder{
 .promos1 img, .promos2 img{
   border-radius: 10px;
   box-shadow: 0px 0px  3px rgba(0, 0, 0, 0.7);
+  width: 95%;
 }
 
-.promosContainer .moveLeftCurrent{
-  animation-name: moveLeftCurrent;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-}
+.restaurantesHead{
+    width: 100%;
 
-.promosContainer .moveLeftNextSlide{
-  animation-name: moveLeftNext;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-}
-
-@keyframes moveLeftCurrent {
-  from{
-    margin-left: 0;
-    opacity: 1;
-  }to{
-    margin-left: -100%;
-    opacity: 1;
-  }
-}
-
-@keyframes moveLeftNext {
-  from{
-    margin-left: 100%;
-    opacity: 1;
-  }to{
-    margin-left: 0;
-    opacity: 1;
-  }
 }
 
 .info{
-  display: flex;
-  width: 90%;
-  justify-content: space-around;
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
   margin: 0 auto;
 }
 .info div{
@@ -248,30 +308,107 @@ input::placeholder{
 }
 
 .info .infoText{
-  width: 350px;
-  font-size: 13px;
+  width: 250px;
+  font-size: 14px;
+  margin-right: 50px;
 }
 
 .info .infoIcon{
-  font-size: 30px;
-  margin-top: 6px;
-  margin-right: 15px;
+  font-size: 40px;
+  margin-right: 20px;
 }
 
 .info li{
   display: inline-flex;
 }
+.forgotPassword{
+  float: right;
+  font-size: 12px;
+  color: #000;
+  padding: 10px 0;
+  margin: 0;
+  position: relative;
+
+}
+.registerContainer{
+  background: #f6f6f6;
+  height: 750px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registerBlock{
+  width: 100%;
+  max-width: 410px;
+  background-color: #fff;
+  display: block;
+  text-align: center;
+  padding: 30px;
+  box-shadow: 0px 0px  4px rgba(240, 240, 240, 0.9);
+}
+.registerBlock .backHome{
+  float: left;
+  font-size: 12px;
+  color: #000;
+}
+.registerBlock form input{
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #f6f6f6;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.registerBlock .btn-fb{
+  background-color: #4267b2;
+  padding: 12px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  width: 100%;
+  border: none;
+}
+.registerInputs{
+  width: 80%;
+  margin: 0 auto;
+}
+.registerInputs form{
+  margin-top: 5px;
+}
+.registerInputs form button{
+  background-color: #191919;
+  border-radius: 5px;
+  padding: 7px;
+  color: #fff;
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: none;
+}
+.registerTitle p, .registerTitle h5{
+  margin-bottom: 13px;
+}
+.registerTitle h5{
+  margin-top: 30px;
+  font-size: 18px;
+}
+.registerTitle p{
+  font-size: 12px;
+}
 
 .submenu{
-  margin-left: -15px;
-  margin-top: 15px;
+  margin-left: -17px;
+  margin-top: 17px;
   width: 145px;
   text-align: center;
 }
 
 
 .submenu input{
-  padding: 10px;
+  padding: 8px;
   border-radius:5px;
   border: 1px solid #d6d6d6;
   width: 110px;
@@ -295,6 +432,10 @@ input::placeholder{
   font-size: 12px;
   width: 110px;
 }
+.submenu li{
+  padding: 10px;
+}
+
 .submenu input::placeholder{
   text-align: center;
 }
@@ -355,20 +496,42 @@ input::placeholder{
 
 footer{
   text-align: center;
-  background-color: #e8e8e8;
+  background-color: #f5f5f5;
   width: 100%;
-  margin-top: 50px;
   bottom: 0;
-  height: 50px;
-  font-size: 12px;
+  height: 40px;
+  font-size: 10px;
 }
 footer span{
   position: absolute;
-  margin-top: 17px;
+  margin-top: 14px;
+}
+@media (max-width: 878px) {
+  .menu {
+    flex-direction: column;
+    display: grid;
+    position: relative;
+    top: 40px;
+    float: left;
+  }
 }
 
-@@media 767px {
-  .menuBar2 ul{
-    display: none;
+@keyframes moveLeftCurrent {
+  from{
+    margin-left: 0;
+    opacity: 1;
+  }to{
+    margin-left: -100%;
+    opacity: 1;
+  }
+}
+
+@keyframes moveLeftNext {
+  from{
+    margin-left: 100%;
+    opacity: 1;
+  }to{
+    margin-left: 0;
+    opacity: 1;
   }
 }
